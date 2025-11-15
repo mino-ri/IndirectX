@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TypeMapping Include="D3DCompiler.h" Dll="D3DCompiler_43.dll" Namespace="IndirectX.D3DCompiler">
+  <NameReplace From="^Dxgi" To="Dxgi." />
+  <NameReplace From="^D3D" To="" />
+  <NameReplace From="^ID3D" To="" />
+  <Alias Name="ID3DBlob" MapTo="D3DBytecode" />
+  <Alias Name="D3D_SHADER_MACRO" MapTo="InteropShaderMacro" />
+  <Enum Name="D3DCOMPILE" FromSymbol="D3DCOMPILE_" MapTo="CompileFlags">
+    <Common>
+      <Case Name="D3DCOMPILE_EFFECT.*" MapTo="// deleted" />
+    </Common>
+  </Enum>
+  <Enum Name="D3DCOMPILE_EFFECT" FromSymbol="D3DCOMPILE_EFFECT" MapTo="CompileEffectFlags" />
+  <Enum Name="D3D_COMPRESS_SHADER" FromSymbol="D3D_COMPRESS_SHADER" MapTo="CompressShaderFlags" />
+  <Enum Name="D3DCOMPILER_STRIP_FLAGS" MapTo="StripFlags" />
+  <Enum Name="D3D_DISASM" FromSymbol="D3D_DISASM" MapTo="DisassembleFlags" />
+  <Struct Name="D3D_SHADER_DATA" Modifier="internal" />
+  <Method Name="D3DCompile" Delete="true">
+    <Parameter Name="pDefines" ByArray="true" />
+    <Parameter Name="pInclude" Use="ComPtr.Null" />
+    <Parameter Name="Flags1" ManagedType="CompileFlags" NativeType="CompileFlags" />
+    <Parameter Name="Flags2" ManagedType="CompileEffectFlags" NativeType="CompileEffectFlags" />
+  </Method>
+  <Method Name="D3DPreprocess" Delete="true">
+    <Parameter Name="pDefines" ByArray="true" />
+    <Parameter Name="pInclude" Use="ComPtr.Null" />
+  </Method>
+  <Method Name="D3DReflect" Delete="true">
+    <Parameter Name="pInterface" MapTo="@interface" />
+  </Method>
+  <Method Name="D3DDisassemble" Delete="true">
+    <Parameter Name="Flags" ManagedType="DisassembleFlags" NativeType="DisassembleFlags" />
+  </Method>
+  <Method Name="D3DGetBlobPart" Delete="true">
+    <Parameter Name="ppPart" MapTo="result" />
+    <Parameter Name="Flags" ManagedType="GetBlobPartFlags" NativeType="GetBlobPartFlags" />
+  </Method>
+  <Method Name="D3DCompressShaders" Delete="true">
+    <Parameter Name="uFlags" ManagedType="CompressShaderFlags" NativeType="CompressShaderFlags" />
+  </Method>
+  <Method Name="D3DDecompressShaders" Delete="true">
+    <Parameter Name="pIndices" Optional="false" />
+    <Parameter Name="ppShaders" Length="indices.Length" ManagedType="Blob*" />
+    <Parameter Name="uFlags" ManagedType="CompressShaderFlags" NativeType="CompressShaderFlags" />
+  </Method>
+  <Method Name="D3DStripShader" Delete="true">
+    <Parameter Name="uStripFlags" ManagedType="StripFlags" NativeType="StripFlags" />
+  </Method>
+  <Common>
+    <Parameter Name="pSrcData" ManagedType="byte*" NativeType="byte*" ByArray="true" In="true" />
+    <Parameter Name="pShaderBytecode" ManagedType="byte*" NativeType="byte*" ByArray="true" In="true" />
+    <Method Name=".+" Delete="true" />
+  </Common>
+</TypeMapping>

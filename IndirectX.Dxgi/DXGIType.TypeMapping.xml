@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TypeMapping Include="DXGIType.h" Namespace="IndirectX.Dxgi">
+  <NameReplace From="^Dxgi" To="" />
+</TypeMapping>

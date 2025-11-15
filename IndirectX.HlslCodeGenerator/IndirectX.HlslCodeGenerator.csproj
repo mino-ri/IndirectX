@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <InformationalVersion>1.0.0</InformationalVersion>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors>mino-ri</Authors>
+    <Copyright>© 2025 mino-ri</Copyright>
+
+    <PackageProjectUrl>https://github.com/mino-ri/IndirectX</PackageProjectUrl>
+    <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>DirectX;HLSL</PackageTags>
+    <PackageId>$(AssemblyName)</PackageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Title>IndirectX.HlslCodeGenerator</Title>
+    <Description>Provides a generator to embed compiled HLSL bytecode within C# code.</Description>
+
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>indxgen</ToolCommandName>
+    <PackageOutputPath>../nupkg</PackageOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\IndirectX\Unknown.cs" Link="Shared\%(FileName)%(Extension)" />
+    <Compile Include="..\IndirectX\IndirectXException.cs" Link="Shared\%(FileName)%(Extension)" />
+    <Compile Include="..\IndirectX\Interop\*.cs" Link="Shared\Interop\%(FileName)%(Extension)" />
+    <Compile Include="..\IndirectX.D3DCompiler\**\*.cs" Exclude="..\IndirectX.D3DCompiler\obj\**\*.cs" Link="Shared\D3DCompiler\%(RecursiveDir)%(FileName)%(Extension)" />
+  </ItemGroup>
+
+</Project>

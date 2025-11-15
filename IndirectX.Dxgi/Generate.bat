@@ -1,0 +1,2 @@
+cd .\generated
+..\..\Tools\Release\IndirectX.TypeGenerator.exe -g "..\..\IndirectX\TypeMapping.xml" -p "%DXSDK_DIR%include" -l "..\Dxgi.TypeMapping.xml" "..\DxgiType.TypeMapping.xml" "..\DxgiFormat.TypeMapping.xml"

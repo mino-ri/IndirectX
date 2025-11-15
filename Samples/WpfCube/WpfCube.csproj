@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\IndirectX.D3D11\IndirectX.D3D11.csproj" />
+    <ProjectReference Include="..\..\IndirectX.Dxgi\IndirectX.Dxgi.csproj" />
+    <ProjectReference Include="..\..\IndirectX.Helper.Wpf\IndirectX.Helper.Wpf.csproj" />
+    <ProjectReference Include="..\..\IndirectX.Helper\IndirectX.Helper.csproj" />
+    <ProjectReference Include="..\..\IndirectX\IndirectX.csproj" />
+  </ItemGroup>
+
+</Project>

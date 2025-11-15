@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TypeMapping Include="D3D11.h" Dll="d3d11.dll" Namespace="IndirectX.D3D11">
+  <Alias Name="D3D11_COUNTER" MapTo="CounterDeviceDependent" />
+  <Alias Name="D3D11_QUERY" MapTo="QueryType" />
+  <Alias Name="D3D_FEATURE_LEVEL" MapTo="FeatureLevel" />
+  <Alias Name="D3D_DRIVER_TYPE" MapTo="DriverType" />
+  <Alias Name="D3D11_INPUT_ELEMENT_DESC" MapTo="InteropInputElementDesc" />
+  <Alias Name="D3D11_SO_DECLARATION_ENTRY" MapTo="InteropSoDeclarationEntry" />
+  <NameReplace From="^Dxgi" To="Dxgi." />
+  <NameReplace From="^D3D11" To="" />
+  <NameReplace From="^Idxgi" To="Dxgi." />
+  <NameReplace From="^IDXGI" To="Dxgi." />
+  <NameReplace From="^ID3D11" To="" />
+  <NameReplace From="Texture1Darray" To="Texture1DArray" />
+  <NameReplace From="Texture2Darray" To="Texture2DArray" />
+  <NameReplace From="Texture2Dmsarray" To="Texture2DmsArray" />
+  <Struct Name="D3D11_BLEND_DESC" Delete="True" />
+  <Struct Name="D3D11_INPUT_ELEMENT_DESC" Modifier="internal" />
+  <Struct Name="D3D11_SO_DECLARATION_ENTRY" Modifier="internal" />
+  <Struct Name="D3D11_BUFFEREX_SRV">
+    <Field Name="Flags" Type="BufferexSrvFlags" />
+  </Struct>
+  <Struct Name="D3D11_DEPTH_STENCIL_VIEW_DESC">
+    <Field Name="Flags" Type="DsvFlags" />
+  </Struct>
+  <Struct Name="D3D11_BUFFER_UAV">
+    <Field Name="Flags" Type="BufferUavFlags" />
+  </Struct>
+  <Interface Name="ID3D11Resource">
+    <Method Name="GetType" MapTo="GetResourceType" />
+  </Interface>
+  <Interface Name="ID3D11Resource">
+    <Method Name="GetType" MapTo="GetResourceType" />
+  </Interface>
+  <Interface Name="ID3D11Device">
+    <Common>
+      <Parameter Name="pShaderBytecode.*" MapTo="shaderBytecode" ManagedType="byte*" NativeType="byte*" ByArray="True" />
+      <Parameter Name="BytecodeLength" Use="(nint)shaderBytecode.Length" />
+    </Common>
+    <Method Name="CreateInputLayout" Modifier="private" />
+    <Method Name="CreateGeometryShaderWithStreamOutput" MapTo="CreateGeometryShaderWithStreamOutputCore" Modifier="private" />
+  </Interface>
+  <Interface Name="ID3D11DeviceContext">
+    <Method Name="GetType" MapTo="GetCotnextType" />
+    <Method Name="UpdateSubresource" MapTo="UpdateSubresourceCore" Modifier="private" />
+    <Method Name="IASetVertexBuffers" Modifier="private" />
+    <Method Name="IAGetVertexBuffers" MapTo="IAGetVertexBuffersCore" Modifier="private" />
+    <Method Name="SOSetTargets" Modifier="private" />
+    <Method Name="OMSetRenderTargetsAndUnorderedAccessViews" Modifier="private" />
+    <Method Name="OMSetBlendState">
+      <Parameter Name="BlendFactor" NativeType="in Color" ManagedType="Color*" />
+    </Method>
+    <Method Name="OMGetBlendState">
+      <Parameter Name="BlendFactor" NativeType="out Color" ManagedType="Color*" />
+    </Method>
+    <Method Name="RSSetViewports">
+      <Parameter Name="pViewports" Params="True" />
+    </Method>
+    <Method Name="RSSetScissorRects">
+      <Parameter Name="pRects" Params="True" />
+    </Method>
+    <Method Name="VSSetConstantBuffers">
+      <Parameter Name="ppConstantBuffers" Params="True" />
+    </Method>
+    <Method Name="PSSetShaderResources">
+      <Parameter Name="ppShaderResourceViews" Params="True" />
+    </Method>
+    <Method Name="PSSetSamplers">
+      <Parameter Name="ppSamplers" Params="True" />
+    </Method>
+    <Method Name="PSSetConstantBuffers">
+      <Parameter Name="ppConstantBuffers" Params="True" />
+    </Method>
+    <Method Name="GSSetConstantBuffers">
+      <Parameter Name="ppConstantBuffers" Params="True" />
+    </Method>
+    <Method Name="VSSetShaderResources">
+      <Parameter Name="ppShaderResourceViews" Params="True" />
+    </Method>
+    <Method Name="VSSetSamplers">
+      <Parameter Name="ppSamplers" Params="True" />
+    </Method>
+    <Method Name="GSSetShaderResources">
+      <Parameter Name="ppShaderResourceViews" Params="True" />
+    </Method>
+    <Method Name="GSSetSamplers">
+      <Parameter Name="ppSamplers" Params="True" />
+    </Method>
+    <Method Name="HSSetShaderResources">
+      <Parameter Name="ppShaderResourceViews" Params="True" />
+    </Method>
+    <Method Name="HSSetSamplers">
+      <Parameter Name="ppSamplers" Params="True" />
+    </Method>
+    <Method Name="HSSetConstantBuffers">
+      <Parameter Name="ppConstantBuffers" Params="True" />
+    </Method>
+    <Method Name="DSSetShaderResources">
+      <Parameter Name="ppShaderResourceViews" Params="True" />
+    </Method>
+    <Method Name="DSSetSamplers">
+      <Parameter Name="ppSamplers" Params="True" />
+    </Method>
+    <Method Name="DSSetConstantBuffers">
+      <Parameter Name="ppConstantBuffers" Params="True" />
+    </Method>
+    <Method Name="CSSetShaderResources">
+      <Parameter Name="ppShaderResourceViews" Params="True" />
+    </Method>
+    <Method Name="CSSetSamplers">
+      <Parameter Name="ppSamplers" Params="True" />
+    </Method>
+    <Method Name="CSSetConstantBuffers">
+      <Parameter Name="ppConstantBuffers" Params="True" />
+    </Method>
+    <Method Name="ClearRenderTargetView">
+      <Parameter Name="ColorRGBA" ManagedType="Color" NativeType="Color" />
+    </Method>
+    <Method Name="ClearDepthStencilView">
+      <Parameter Name="ClearFlags" ManagedType="ClearFlags" NativeType="ClearFlags" />
+    </Method>
+  </Interface>
+  <Method Name="D3D11CreateDevice">
+    <Parameter Name="SDKVersion" Use="Device.SdkVersion" />
+    <Parameter Name="Flags" ManagedType="CreateDeviceFlags" NativeType="CreateDeviceFlags" />
+  </Method>
+  <Method Name="D3D11CreateDeviceAndSwapChain">
+    <Parameter Name="SDKVersion" Use="Device.SdkVersion" />
+    <Parameter Name="Flags" ManagedType="CreateDeviceFlags" NativeType="CreateDeviceFlags" />
+  </Method>
+  <Common>
+    <Field Name="BindFlags" Type="BindFlags" />
+    <Field Name="CPUAccessFlags" MapTo="CpuAccessFlags" Type="CpuAccessFlags" />
+    <Field Name="MiscFlags" Type="ResourceMiscFlags" />
+  </Common>
+</TypeMapping>

@@ -1,0 +1,14 @@
+.vs
+/**/log/*
+*.aps
+*.cache
+*.eto
+*.suo
+*.user
+packages
+/**/bin/*
+/**/obj/*
+/Debug/*
+/Release/*
+/generated/*
+/nupkg/*

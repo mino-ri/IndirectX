@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "IndirectX.TypeGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "-x -h -s -p \"%DXSDK_DIR%include\"",
+    }
+  }
+}

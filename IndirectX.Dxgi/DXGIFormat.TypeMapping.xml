@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TypeMapping Include="DXGIFormat.h" Namespace="IndirectX.Dxgi">
+  <NameReplace From="^Dxgi" To="" />
+  <NameReplace From="Uint" To="UInt" />
+  <NameReplace From="Sint" To="SInt" />
+  <NameReplace From="Unorm" To="UNorm" />
+  <NameReplace From="Snorm" To="SNorm" />
+</TypeMapping>

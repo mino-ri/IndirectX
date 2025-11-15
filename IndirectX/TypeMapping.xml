@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TypeMapping>
+  <Define Symbol="D3D11_NO_HELPERS" />
+  <Define Symbol="__cplusplus" />
+  <Import Namespace="System" />
+  <Import Namespace="IndirectX.Interop" />
+  <Alias Name="void" MapTo="void" />
+  <Alias Name="LPCVOID" MapTo="void*" />
+  <Alias Name="BOOL" MapTo="Bool" />
+  <Alias Name="INT" MapTo="int" />
+  <Alias Name="BYTE" MapTo="byte" />
+  <Alias Name="UINT" MapTo="int" />
+  <Alias Name="UINT" Length="4" MapTo="Int4" />
+  <Alias Name="UINT8" MapTo="byte" />
+  <Alias Name="UINT16" MapTo="short" />
+  <Alias Name="UINT32" MapTo="int" />
+  <Alias Name="UINT64" MapTo="long" />
+  <Alias Name="LARGE_INTEGER" MapTo="long" />
+  <Alias Name="LUID" MapTo="long" />
+  <Alias Name="float" MapTo="float" />
+  <Alias Name="float" Length="1025" MapTo="Float1025" />
+  <Alias Name="FLOAT" MapTo="float" />
+  <Alias Name="FLOAT" Length="4" MapTo="Float4" />
+  <Alias Name="FLOAT" Length="8,2" MapTo="Float2x8" />
+  <Alias Name="FLOAT" Length="16,2" MapTo="Float2x16" />
+  <Alias Name="SIZE_T" MapTo="nint" />
+  <Alias Name="DWORD" MapTo="int" />
+  <Alias Name="HDC" MapTo="ComPtr" />
+  <Alias Name="D3D11_RECT" MapTo="Rect" />
+  <Alias Name="HMONITOR" MapTo="nint" />
+  <Alias Name="HANDLE" MapTo="nint" />
+  <Alias Name="HWND" MapTo="nint" />
+  <Alias Name="HMODULE" MapTo="nint" />
+  <Alias Name="HRESULT" MapTo="HResult" />
+  <Alias Name="REFGUID" MapTo="Guid*" />
+  <Alias Name="REFIID" MapTo="Guid*" />
+  <Alias Name="WCHAR" Length="32" MapTo="Char32" />
+  <Alias Name="WCHAR" Length="128" MapTo="Char128" />
+  <Alias Name="LPSTR" MapTo="byte*" />
+  <Alias Name="LPCSTR" MapTo="AnsiString" />
+  <Alias Name="IUnknown" MapTo="Unknown" />
+</TypeMapping>

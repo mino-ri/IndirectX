@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TypeMapping Include="DXGI.h" Dll="DXGI.dll" Namespace="IndirectX.Dxgi">
+  <Alias Name="FLOAT" Length="1025" MapTo="Float1025" />
+
+  <NameReplace From="^Dxgi" To="" />
+  <NameReplace From="^IDXGI" To="" />
+  <NameReplace From="^Object" To="DxgiObject" />
+
+  <Enum Name="DXGI_USAGE" FromSymbol="DXGI_USAGE" />
+  <Enum Name="DXGI_CPU_ACCESS" FromSymbol="DXGI_CPU_ACCESS" />
+  <Enum Name="DXGI_PRESENT" FromSymbol="DXGI_PRESENT" MapTo="PresentFlags" />
+  
+  <Struct Name="DXGI_SWAP_CHAIN_DESC">
+    <Field Name="Flags" Type="SwapChainFlags" />
+  </Struct>
+  <Struct Name="DXGI_SWAP_CHAIN_DESC">
+    <Field Name="Flags" Type="SwapChainFlags" />
+  </Struct>
+  <Struct Name="DXGI_ADAPTER_DESC1">
+    <Field Name="Flags" Type="AdapterFlags" />
+  </Struct>
+  <Interface Name="IDXGIObject">
+    <Method Name="GetParent" Modifier="private" />
+  </Interface>
+  <Interface Name="IDXGIDeviceSubObject">
+    <Method Name="GetDevice" Modifier="private" />
+  </Interface>
+  <Interface Name="IDXGIFactory">
+    <Method Name="EnumAdapters">
+      <Parameter Name="Adapter" MapTo="adapterIndex" />
+    </Method>
+    <Method Name="MakeWindowAssociation">
+      <Parameter Name="Flags" ManagedType="WindowAssociationFlags" NativeType="WindowAssociationFlags" />
+    </Method>
+  </Interface>
+  <Interface Name="IDXGIFactory1">
+    <Method Name="EnumAdapters1">
+      <Parameter Name="Adapter" MapTo="adapterIndex" />
+    </Method>
+  </Interface>
+  <Interface Name="IDXGISurface1">
+    <Method Name="GetDC" Modifier="private" />
+  </Interface>
+
+  <Interface Name="IDXGIAdapter">
+    <Method Name="EnumOutputs">
+      <Parameter Name="Output" MapTo="outputIndex" />
+    </Method>
+  </Interface>
+  <Interface Name="IDXGIDevice">
+    <Method Name="QueryResourceResidency" Modifier="private">
+      <Parameter Name="ppResources" MapTo="resources" />
+      <Parameter Name="pResidencyStatus" Length="resources.Length" />
+      <Parameter Name="NumResources" />
+    </Method>
+  </Interface>
+  <Interface Name="IDXGIDevice">
+    <Method Name="QueryResourceResidency" Modifier="private">
+      <Parameter Name="ppResources" MapTo="resources" />
+      <Parameter Name="pResidencyStatus" Length="resources.Length" />
+      <Parameter Name="NumResources" />
+    </Method>
+  </Interface>
+  <Interface Name="IDXGISwapChain">
+    <Method Name="Present">
+      <Parameter Name="Flags" ManagedType="PresentFlags" NativeType="PresentFlags" />
+    </Method>
+    <Method Name="GetBuffer" Modifier="private" />
+  </Interface>
+  <Method Name="CreateDXGIFactory">
+    <Parameter Name="riid" In="true" />
+    <Parameter Name="ppFactory" Out="true" />
+  </Method>
+  <Method Name="CreateDXGIFactory1">
+    <Parameter Name="riid" In="true" />
+    <Parameter Name="ppFactory" Out="true" />
+  </Method>      
+</TypeMapping>
