@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{C3C0B376
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndirectX.ImageEmbedder", "IndirectX.ImageEmbedder\IndirectX.ImageEmbedder.csproj", "{5829514A-B88A-4B0E-8AF2-F4A9F71B9CAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,10 @@ Global
 		{E8547AF7-38D4-4FD1-B577-A6D7401A5A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8547AF7-38D4-4FD1-B577-A6D7401A5A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8547AF7-38D4-4FD1-B577-A6D7401A5A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5829514A-B88A-4B0E-8AF2-F4A9F71B9CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5829514A-B88A-4B0E-8AF2-F4A9F71B9CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5829514A-B88A-4B0E-8AF2-F4A9F71B9CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5829514A-B88A-4B0E-8AF2-F4A9F71B9CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

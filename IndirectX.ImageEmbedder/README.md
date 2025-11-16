@@ -1,0 +1,1 @@
+# IndirectX.ImageEmbedder
